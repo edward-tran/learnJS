@@ -96,32 +96,38 @@ var courses = [
 //     }
 // })
 // console.log(updatedCourses);
-var courses = [
-    {
-        id: 1,
-        name: 'HTML, CSS',
-        price: 50
-    },
-    {
-        id: 1,
-        name: 'Javascript',
-        price: 100
-    },
-    {
-        id: 1,
-        name: 'ReactJS',
-        price: 200
-    },
-]
+// var courses = [
+//     {
+//         id: 1,
+//         name: 'HTML, CSS',
+//         price: 50
+//     },
+//     {
+//         id: 1,
+//         name: 'Javascript',
+//         price: 100
+//     },
+//     {
+//         id: 1,
+//         name: 'ReactJS',
+//         price: 200
+//     },
+// ]
 
-var totalPrice = courses.reduce((accumulator, currentValue)=>{
-    return accumulator += currentValue.price
-},0)
+// var totalPrice = courses.reduce((accumulator, currentValue)=>{
+//     return accumulator += currentValue.price
+// },0)
 
 // console.log(`Total price: ${totalPrice}`);
 
 // Flat an array
 var depthArray = [1,2,[3,4],5,6,[7,8,9]]
+var flatArray = depthArray.reduce((flatItem, depthItem, depthIndex)=>{
+    return flatItem.concat(depthItem)
+}, [])
+
+// console.log('The flat array; ',flatArray);
+
 
 // Get all courses and put into a new array 
 var topics = [
@@ -153,3 +159,14 @@ var topics = [
     }
 ]
 
+
+var courses = topics.reduce((courseArray, topicsItem)=>{
+    return courseArray.concat(topicsItem.courses)
+},[])
+
+// console.log('The new course: ',courses.map((course)=>{
+//     return course
+// }))
+
+flatArray.pop()
+console.log(flatArray.pop());
