@@ -121,52 +121,101 @@ var courses = [
 // console.log(`Total price: ${totalPrice}`);
 
 // Flat an array
-var depthArray = [1,2,[3,4],5,6,[7,8,9]]
-var flatArray = depthArray.reduce((flatItem, depthItem, depthIndex)=>{
-    return flatItem.concat(depthItem)
-}, [])
+// var depthArray = [1,2,[3,4],5,6,[7,8,9]]
+// var flatArray = depthArray.reduce((flatItem, depthItem, depthIndex)=>{
+//     return flatItem.concat(depthItem)
+// }, [])
 
 // console.log('The flat array; ',flatArray);
 
 
 // Get all courses and put into a new array 
-var topics = [
-    {
-        topic: 'Front-end',
-        courses: [
-            {
-                id: 1,
-                title: 'HTML, CSS' 
-            },
-            {
-                id: 2,
-                title: 'Javascript' 
-            }
-        ]
-    },
-    {
-        topic: 'Back-end',
-        courses: [
-            {
-                id: 1,
-                title: 'PHP' 
-            },
-            {
-                id: 2,
-                title: 'NodeJS' 
-            }
-        ]
-    }
-]
+// var topics = [
+//     {
+//         topic: 'Front-end',
+//         courses: [
+//             {
+//                 id: 1,
+//                 title: 'HTML, CSS' 
+//             },
+//             {
+//                 id: 2,
+//                 title: 'Javascript' 
+//             }
+//         ]
+//     },
+//     {
+//         topic: 'Back-end',
+//         courses: [
+//             {
+//                 id: 1,
+//                 title: 'PHP' 
+//             },
+//             {
+//                 id: 2,
+//                 title: 'NodeJS' 
+//             }
+//         ]
+//     }
+// ]
 
 
-var courses = topics.reduce((courseArray, topicsItem)=>{
-    return courseArray.concat(topicsItem.courses)
-},[])
+// var courses = topics.reduce((courseArray, topicsItem)=>{
+//     return courseArray.concat(topicsItem.courses)
+// },[])
 
 // console.log('The new course: ',courses.map((course)=>{
 //     return course
 // }))
 
-flatArray.pop()
-console.log(flatArray.pop());
+
+// var str = 'Learn Javascript in 2025'
+// console.log(str.includes('learn'));
+
+// var course = ['PHP', 'Java']
+// console.log(course.includes('Java', -4));
+
+// var courseArray = courses.map((course, index)=>{
+//    return '<h2>${courseArray.name}</h2>'
+// })
+// var htmls= courseArray.join(' ')
+// console.log(htmls);
+
+Array.prototype.map2 = function(callBack){
+    var arrayLength = this.length
+    var returnValue = []
+    for (var i = 0; i < arrayLength; i++){
+        var result = callBack(this[i], i)
+        returnValue.push(result)
+    }
+    return returnValue
+}
+
+
+
+// var map2Result = courses.map2((course, index)=>{
+    
+// })  
+
+// var mapResult = courses.map((course, index)=>{
+// })
+
+// console.log(map2Result, mapResult);
+
+//Homework
+// forEach2(), filter2(), find2(), some2(), every2(), reduce2()
+
+//forEach2()
+Array.prototype.forEach2 = function(callBack){
+    if (typeof callBack !== 'function'){
+        throw new TypeError(callBack + ' is not a function!')
+    }
+    var arrayLength = this.length
+    for (var index = 0; index < arrayLength; index++){
+        callBack(this[index], index, this)
+    }
+}
+
+courses.forEach2((course, index, originArray)=>{
+    console.log(course, index, originArray);
+});
