@@ -206,16 +206,16 @@ Array.prototype.map2 = function(callBack){
 // forEach2(), filter2(), find2(), some2(), every2(), reduce2()
 
 //forEach2()
-Array.prototype.forEach2 = function(callBack){
-    if (typeof callBack !== 'function'){
-        throw new TypeError(callBack + ' is not a function!')
-    }
-    var arrayLength = this.length
-    for (var index = 0; index < arrayLength; index++){
-        callBack(this[index], index, this)
-    }
-}
+// Array.prototype.forEach2 = function(callBack){
+//     if (typeof callBack !== 'function'){
+//         throw new TypeError(callBack + ' is not a function!')
+//     }
+//     var arrayLength = this.length
+//     for (var index = 0; index < arrayLength; index++){
+//         callBack(this[index], index, this)
+//     }
+// }
 
-courses.forEach2((course, index, originArray)=>{
-    console.log(course, index, originArray);
-});
+// courses.forEach2((course, index, originArray)=>{
+//     console.log(course, index, originArray);
+// });
