@@ -70,7 +70,7 @@ var courses = [
         price: 200
     },
     {
-        id: 3,
+        id: 2,
         name: 'NodeJS',
         price: 250
     },
@@ -83,7 +83,7 @@ var courses = [
 
 
 // console.log(courses.filter((course, index)=>{
-//     return course.id == 2
+//     return course.id == 4
 // }));
 
 // var updatedCourses = courses.map((course, index, originArray)=>{
@@ -191,8 +191,6 @@ Array.prototype.map2 = function(callBack){
     return returnValue
 }
 
-
-
 // var map2Result = courses.map2((course, index)=>{
     
 // })  
@@ -219,3 +217,21 @@ Array.prototype.map2 = function(callBack){
 // courses.forEach2((course, index, originArray)=>{
 //     console.log(course, index, originArray);
 // });
+
+//filter2()
+Array.prototype.filter2 = function(callBack){
+    var returnValue = []
+    var arrayLength = this.length
+    for (var index = 0; index < arrayLength; index++){
+        var callbackReturnValue = callBack(this[index], index, this)
+        if (callbackReturnValue){
+            returnValue.push(this[index])
+        }
+    }
+    return returnValue
+}
+
+console.log(courses.filter2((course, index)=>{
+    return course
+}));
+
