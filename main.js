@@ -219,19 +219,41 @@ Array.prototype.map2 = function(callBack){
 // });
 
 //filter2()
-Array.prototype.filter2 = function(callBack){
-    var returnValue = []
+// Array.prototype.filter2 = function(callBack){
+//     var returnValue = []
+//     var arrayLength = this.length
+//     for (var index = 0; index < arrayLength; index++){
+//         var callbackReturnValue = callBack(this[index], index, this)
+//         if (callbackReturnValue){
+//             returnValue.push(this[index])
+//         }
+//     }
+//     return returnValue
+// }
+
+// console.log(courses.filter2((course, index)=>{
+//     return course
+// }));
+
+//find2()
+Array.prototype.find2 = function(callBack){
+    var returnValue
     var arrayLength = this.length
     for (var index = 0; index < arrayLength; index++){
         var callbackReturnValue = callBack(this[index], index, this)
         if (callbackReturnValue){
-            returnValue.push(this[index])
+            returnValue = this[index]
+            break
         }
     }
     return returnValue
 }
 
-console.log(courses.filter2((course, index)=>{
-    return course
+console.log(courses.find((course, index)=>{
+    return course.id == 4
+}));
+
+console.log(courses.find2((course, index)=>{
+    return course.id == 4
 }));
 
